@@ -14,7 +14,7 @@ import com.paramparaevents.util.SessionUtil;
 /**
  * Controller for handling user logout
  */
-@WebServlet("/logout")
+@WebServlet(asyncSupported=true, urlPatterns ={"/logout"})
 public class LogoutController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger logger = Logger.getLogger(LogoutController.class.getName());
@@ -39,6 +39,7 @@ public class LogoutController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        logger.info("Logout doPost()");
         doGet(req, resp);
     }
 }

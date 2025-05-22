@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css?family=Hanken Grotesk"
       rel="stylesheet"
     />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
 
   
@@ -48,7 +49,7 @@
             width: 100%;
           }
 
-
+		
           .section-header {
             display: flex;
             align-items: center;
@@ -85,7 +86,7 @@
             color: inherit;
             border-radius: 1rem;
             overflow: hidden;
-            background-color: var(--white);
+            background-color: #ccc;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             
@@ -97,7 +98,7 @@
             border-radius: 1rem 1rem 0 0;
             background-size: cover;
             background-position: center;
-                                    border:1px solid black;
+                                    border:1px solid #eee;
             
           }
 
@@ -106,6 +107,9 @@
             position: relative;
             min-height: 130px;
             padding-top: 1.5rem;
+            background: #eee;
+            border-bottom-right-radius:20px;
+            border-bottom-left-radius:20px;
           }
 
           .card-info h4 {
@@ -351,9 +355,7 @@
     </style>
     <div class="container2">
       <h1>Memories</h1>
-      <h3>If only you could relive again...</h3>
-            <marquee direction="right" loop="infinite" >
-      
+      <h3>If only you could relive again...</h3>      
       <div class="frame-container">
         <div class="frame">
           <img src="${pageContext.request.contextPath}/resources/images/system/bgimg.jpg" class="frame-photo" alt="gallery-photo" />
@@ -402,7 +404,7 @@
           <div class="frame-border">
             <img src="${pageContext.request.contextPath}/resources/images/home/partitionpillar.png" class="frame-frame" />
           </div>
-        </div>      </div></marquee>
+        </div>      </div>
 
     </div>
 
@@ -863,13 +865,13 @@
               class="profile-img"
             />
             <div class="client-info">
-              <h3 class="client-name">Pragun Maskey</h3>
+              <h3 class="client-name">Ishan Thakuri</h3>
               <div class="rating">
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star">☆</span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star"></span>
               </div>
             </div>
           </div>
@@ -888,13 +890,13 @@
               class="profile-img"
             />
             <div class="client-info">
-              <h3 class="client-name">Anshu Maskey</h3>
+              <h3 class="client-name">Bardan Gurung</h3>
               <div class="rating">
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star">☆</span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star"></span>
               </div>
             </div>
           </div>
@@ -916,13 +918,13 @@
               class="profile-img"
             />
             <div class="client-info">
-              <h3 class="client-name">Sheenchaan</h3>
+              <h3 class="client-name">Paurakh Pyakurel</h3>
               <div class="rating">
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star">☆</span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star"></span>
               </div>
             </div>
           </div>
@@ -944,13 +946,13 @@
               class="profile-img"
             />
             <div class="client-info">
-              <h3 class="client-name">Rabina Lama</h3>
+              <h3 class="client-name">Nirdesh Bakhunchhe</h3>
               <div class="rating">
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star">☆</span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star"></span>
               </div>
             </div>
           </div>
@@ -972,13 +974,12 @@
               class="profile-img"
             />
             <div class="client-info">
-              <h3 class="client-name">Abhishekshek</h3>
+              <h3 class="client-name">Renid Rai</h3>
               <div class="rating">
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star">☆</span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
+                <span class="fa fa-star filled"></span>
               </div>
             </div>
           </div>

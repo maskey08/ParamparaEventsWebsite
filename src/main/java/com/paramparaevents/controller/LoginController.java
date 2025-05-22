@@ -61,6 +61,7 @@ public class LoginController extends HttpServlet {
 	                logger.info("UserModel authenticated successfully: " + userName);
 	                
 	                // Store user information in session
+	                SessionUtil.setAttribute(req, "userId", authenticatedUser.getId());
 	                SessionUtil.setAttribute(req, "user", authenticatedUser);
 	                SessionUtil.setAttribute(req, "userName", authenticatedUser.getUserName());
 	                SessionUtil.setAttribute(req, "userRole", authenticatedUser.getRole());
@@ -103,7 +104,7 @@ public class LoginController extends HttpServlet {
 	            errorMessage = "User credential mismatch. Please try again!";
 	            logger.warning("Invalid credentials provided");
 	        }
-	        req.setAttribute("error", errorMessage);
+	        req.setAttribute("Lerror", errorMessage);
 	        req.getRequestDispatcher("/WEB-INF/pages/userPortal.jsp").forward(req, resp);
 	    }
 	}

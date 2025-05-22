@@ -1550,6 +1550,8 @@
             });
           });
         </script>
+        <script src="${pageContext.request.contextPath}/scripts/scripts.js"></script>
+	<jsp:include page="footer.jsp" />
       </body>
 
       </html>

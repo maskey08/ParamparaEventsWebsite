@@ -51,14 +51,19 @@ public class RegistrationController extends HttpServlet {
 			}
 
 			UserModel userModel = extractUserModel(request);
-			Boolean isAdded = registrationService.addUser(userModel);
-
-			if (isAdded == null) {
-				handleError(request, response, "Our server is under maintenance. Please try again later!");
-			}  else if (isAdded) {
-				handleSuccess(request, response, "Your account is successfully created!", "/WEB-INF/pages/login.jsp");
+			if(registrationService.usernameExists(request.getParameter("username"))) {
+				handleError(request, response, "Username already exists! Please try again.");
+				return;
 			} else {
-				handleError(request, response, "Could not register your account. Please try again later!");
+				Boolean isAdded = registrationService.addUser(userModel);
+
+				if (isAdded == null) {
+					handleError(request, response, "Our server is under maintenance. Please try again later!");
+				}  else if (isAdded) {
+					handleSuccess(request, response, "Your account is successfully created!", "/login");
+				} else {
+					handleError(request, response, "Could not register your account. Please try again later!");
+				}
 			}
 		} catch (Exception e) {
 			handleError(request, response, "An unexpected error occurred. Please try again later!");
@@ -72,7 +77,6 @@ public class RegistrationController extends HttpServlet {
 		String email = request.getParameter("email");
 		String number = request.getParameter("phone");
 		String password = request.getParameter("password");
-		//String retypePassword = request.getParameter("cpassword");
 
 		
 
@@ -85,8 +89,7 @@ public class RegistrationController extends HttpServlet {
 			return "Phone number is required.";
 		if (ValidationUtil.isNullOrEmpty(password))
 			return "Password is required.";
-		//if (ValidationUtil.isNullOrEmpty(retypePassword))
-			//return "Please retype the password.";
+		
 		
 		// Validate fields
 		if (!ValidationUtil.isAlphanumericStartingWithLetter(username))
@@ -98,8 +101,7 @@ public class RegistrationController extends HttpServlet {
 			return "Phone number must be 10 digits and start with 98 or 97.";
 		if (!ValidationUtil.isValidPassword(password))
 			return "Password must be at least 8 characters long, with 1 uppercase letter, 1 number, and 1 symbol.";
-		//if (!ValidationUtil.doPasswordsMatch(password, retypePassword))
-			//return "Passwords do not match.";
+
 
 		
 		return null; // All validations passed
@@ -122,9 +124,9 @@ public class RegistrationController extends HttpServlet {
 
 	private void handleSuccess(HttpServletRequest req, HttpServletResponse resp, String message, String redirectPage)
 			throws ServletException, IOException {
-		req.setAttribute("success", message);
-		req.getRequestDispatcher(redirectPage).forward(req, resp);
-	}
+		req.setAttribute("Lsuccess", message);
+		// Redirect to home page
+        resp.sendRedirect(req.getContextPath() + redirectPage);	}
 
 	private void handleError(HttpServletRequest req, HttpServletResponse resp, String message)
 			throws ServletException, IOException {

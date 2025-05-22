@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import com.paramparaevents.model.UserModel;
+import com.paramparaevents.util.PasswordUtil;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.Connection;
@@ -73,7 +75,7 @@ public class UserController extends HttpServlet {
             String name = req.getParameter("name");
             String email = req.getParameter("email");
             String phone = req.getParameter("phone");
-            String password = req.getParameter("password");
+            String password = PasswordUtil.encrypt(req.getParameter("password"), name);
             
             // Create user model
             UserModel user = new UserModel(id, name, email, phone);
@@ -139,7 +141,10 @@ public class UserController extends HttpServlet {
                     rs.getString("Email"),
                     rs.getString("Phone_Number")
                 );
-                user.setPassword(rs.getString("Password"));
+                // Decrypt the password here before setting it
+                String encryptedPassword = rs.getString("Password");
+                String decryptedPassword = PasswordUtil.decrypt(encryptedPassword, rs.getString("Username"));
+                user.setPassword(decryptedPassword);
                 return user;
             }
         } catch (Exception e) {

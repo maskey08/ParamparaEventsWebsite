@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2025 at 02:32 AM
+-- Generation Time: May 22, 2025 at 05:23 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -66,8 +66,13 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`Customer_ID`, `Username`, `Email`, `Phone_Number`, `Password`, `Role`) VALUES
-(1, 'admin', 'admin@paramparaevents.com', '9861345444', 'admin', 'admin'),
-(2, 'sneha', 'sneha@gmail.com', '9876543211', 'zxenq3Qc2Bb8sp2c3k/4RN/yuk6B+Npj8JGQBbEk9UHZFWR9qZFiCixHTV/iywXkn6kE5OI=', 'Customer');
+(2, 'katyani', 'katyani@gmail.com', '9861819546', 'TTbXlIcIJoVARPQnHbngi6oGCiaKhRHQQrxI64NZPeqJnFiugY1vx0uLNx2r7kTgqtbFhampbw==', 'Customer'),
+(3, 'sneha', 'sneha@gmail.com', '9876543210', 'pI0QxRaPwzFq/pVonf6e2qSbBj/WxV6leUSUR4VEAv03o435Og6LxNGgGeue9j0o/Lizdhc=', 'admin'),
+(14, 'sneha', 'pragunmaskeyofficial@gmail.com', '9861819546', 'gtNF5eznwadR7nTlfUwKCXtp3NLWW9zIjKNsA2VuwI8xqBqVm9ksynLKVODurXDUP1MCofo=', 'Customer'),
+(16, 'Krijalasdf', 'krijal@gmail.com', '9876543211', 'z/0XMl8YPHfkkht9PyCOW2Qro2nQl5RnKHqJeEYj57UMBehfzgVd0hIzdknYZy2JwZEdUgsE', 'Customer'),
+(17, 'maskey', 'pragunmaskeyofficial@gmail.com', '9876543211', 'xUpdEzCXWn+gmSKyyi6mV4Y1viXZStpxw8X3kb5bnOF9Jil/DX/0YRRMeCe4kmViVpA+AbTp', 'Customer'),
+(19, 'maskey', 'pragunmaskeyofficial@gmail.com', '9876543211', 'BGron4PRZvKFXQqJq+QcNj2o/7LpmI1y3J81NlcgPeU8lZXNQ+AviEFjwdhKUr7r0zyi/Qo1', 'Customer'),
+(20, 'santosh', 'santosh@gmail.com', '9876543211', '7+wVoj02Tw4ZT0EZVAW8OoujbBYfeEyuKd9MFqD96LSsmwDEfgV4W+LMzPIJoNPr2qsVA9XIkw==', 'Customer');
 
 -- --------------------------------------------------------
 
@@ -119,10 +124,22 @@ CREATE TABLE `service` (
   `Service_ID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
   `Description` text NOT NULL,
-  `Cost` decimal(10,2) NOT NULL,
+  `Cost` int(15) NOT NULL,
   `Type` varchar(50) NOT NULL,
-  `ServiceTags` text NOT NULL
+  `ServiceTags` text NOT NULL,
+  `ImgPath` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service`
+--
+
+INSERT INTO `service` (`Service_ID`, `Name`, `Description`, `Cost`, `Type`, `ServiceTags`, `ImgPath`) VALUES
+(1, 'Beach Venue', 'Sukute Beach', 25000, 'Venue', 'Beach, Riverside, Open', 'dhaka.png'),
+(2, 'Alice', 'Big stage area and production.', 60000, 'Venue', 'Indoor, Big', 'dhaka.png'),
+(3, 'Photography', 'Professional wedding and event photography', 15000, 'Service', 'Photography,Candid', 'photo.png'),
+(4, 'DJ Setup', 'Full sound and DJ setup for parties', 12000, 'Service', 'Music,Party', 'dj.png'),
+(5, 'Decoration', 'Theme-based event decorations', 18000, 'Service', 'Decoration,Theme', 'decor.png');
 
 -- --------------------------------------------------------
 
@@ -136,9 +153,18 @@ CREATE TABLE `venue` (
   `Address` text NOT NULL,
   `Capacity` int(11) NOT NULL,
   `Facilities` text NOT NULL,
-  `Availability` tinyint(1) NOT NULL,
+  `Availability` varchar(50) NOT NULL,
   `VenueTags` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `venue`
+--
+
+INSERT INTO `venue` (`Venue_ID`, `Name`, `Address`, `Capacity`, `Facilities`, `Availability`, `VenueTags`) VALUES
+(1, 'Royal Banquet', 'Kathmandu, Nepal', 500, 'AC, Parking, Catering', '1', 'Luxury,Indoor'),
+(2, 'Garden Retreat', 'Pokhara, Lakeside', 300, 'Garden, Stage, Catering', '1', 'Outdoor,Nature'),
+(3, 'Sunrise Palace', 'Bhaktapur, Nepal', 200, 'Indoor, Music System, Generator', '1', 'Classic,Indoor');
 
 --
 -- Indexes for dumped tables
@@ -212,7 +238,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `Customer_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Customer_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -230,13 +256,13 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `Service_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Service_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `venue`
 --
 ALTER TABLE `venue`
-  MODIFY `Venue_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Venue_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

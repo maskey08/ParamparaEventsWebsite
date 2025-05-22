@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class AuthenticationFilter implements Filter {
     // Define access patterns using collections
     private static final Set<String> PUBLIC_PATHS = Set.of(
-        "/login", "/registration", "/home", "/", "/aboutus", "/contactus", "/gallery", "/services"
+       "/logout",  "/login", "/registration", "/home", "/", "/aboutus", "/contactus", "/gallery", "/services"
     );
     
     private static final Set<String> ADMIN_PATHS = Set.of(
@@ -65,7 +65,7 @@ public class AuthenticationFilter implements Filter {
         } else if ("admin".equals(role) && isAdminPath(path)) {
             // Admin accessing admin path
             chain.doFilter(request, response);
-        } else if ("customer".equals(role) && isCustomerPath(path)) {
+        } else if ("Customer".equals(role) && isCustomerPath(path)) {
             // Customer accessing customer path
             chain.doFilter(request, response);
         } else {

@@ -368,6 +368,8 @@
             </div>
         </div>
     </div>
+    <script src="${pageContext.request.contextPath}/scripts/scripts.js"></script>
+	<jsp:include page="footer.jsp" />
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

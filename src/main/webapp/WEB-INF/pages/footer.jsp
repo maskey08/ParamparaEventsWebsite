@@ -48,7 +48,7 @@
       <div class="footer-links">
         <div class="footer-column">
           <div class="brand-container">
-            <img id="brand-logo" src="logo.png" alt="Logo" />
+            <img id="brand-logo" src="${pageContext.request.contextPath}/resources/images/system/logo.png" alt="Logo" />
             <p id="brand-name">Parampara Events</p>
           </div>
         </div>

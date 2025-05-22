@@ -197,8 +197,8 @@
           </c:if>
 
           <!-- Display success message if available -->
-          <c:if test="${not empty success}">
-            <p class="success-message">${success}</p>
+          <c:if test="${not empty Rsuccess}">
+            <p class="success-message">${Rsuccess}</p>
           </c:if>
           <form
             action="${pageContext.request.contextPath}/registration"
@@ -249,10 +249,10 @@
           </c:if>
 
           <!-- Display success message if available -->
-          <c:if test="${not empty success}">
-            <p class="success-message">${success}</p>
+          <c:if test="${not empty Lsuccess}">
+            <p class="success-message">${Lsuccess}</p>
           </c:if>
-          <form action="login" method="POST">
+          <form action="${pageContext.request.contextPath}/login" method="POST">
             <div class="input-group">
               <input
                 type="text"

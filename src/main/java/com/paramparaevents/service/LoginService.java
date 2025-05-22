@@ -37,7 +37,7 @@ public class LoginService {
         }
 
         // Query only by username, we'll verify password after decryption
-        String query = "SELECT Username, Password, Role FROM customer WHERE Username = ?";
+        String query = "SELECT Username, Password, Role, Customer_ID FROM customer WHERE Username = ?";
         
         try (PreparedStatement stmt = dbConn.prepareStatement(query)) {
             stmt.setString(1, user.getUserName());
@@ -53,6 +53,7 @@ public class LoginService {
                     if (validatePassword(user.getPassword(), encryptedPassword, username)) {
                         // Password is valid, set user details
                         user.setRole(result.getString("Role"));
+                        user.setId(result.getInt("Customer_ID"));
                         logger.info("Password validated successfully for user: " + username);
                         return user;
                     } else {

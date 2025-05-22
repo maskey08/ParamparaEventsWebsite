@@ -25,6 +25,10 @@
 		buttonLabel="Login";
 	}
 %>
+<%
+    Integer userId = (Integer) session.getAttribute("userId");
+    pageContext.setAttribute("userId", userId);
+%>
 <style>
  * {
         margin: 0;
@@ -186,7 +190,7 @@ border-bottom: 1px solid rgb(0 0 0 / 10%);
               </svg>
             </button>
           </div>
-          <a href="${pageContext.request.contextPath}/profile">
+<a href="${pageContext.request.contextPath}/profile?id=${userId}">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

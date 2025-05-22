@@ -538,6 +538,8 @@
             </div>
         </div>
     </section>
+    <script src="${pageContext.request.contextPath}/scripts/scripts.js"></script>
+	<jsp:include page="footer.jsp" />
 
     <script>
         // FAQ Accordion Functionality
