@@ -98,7 +98,7 @@
         <!-- Service ID - Hidden for new services -->
         <c:if test="${service != null}">
             <label>Service ID:</label>
-            <input type="text" name="id" value="${service.id}" readonly />
+            <input type="text" name="id" value="${service.serviceId}" readonly />
         </c:if>
         <c:if test="${service == null}">
             <input type="hidden" name="id" value="0" />
@@ -106,7 +106,7 @@
 
         <!-- Name -->
         <label>Service Name:</label>
-        <input type="text" name="name" value="${service.userName}" required />
+        <input type="text" name="name" value="${service.name}" required />
 
         <!-- Description -->
         <label>Description:</label>
